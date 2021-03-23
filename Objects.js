@@ -30,7 +30,7 @@ const circle = {
 circle.draw(); //this is the method
 
 // Do circle. to see all the properties inside
-
+// this is called dot notation
 
 // we are adding this function as a key value pair into the object
 // function draw() {}
