@@ -3,6 +3,7 @@
 // Ctrl L clears console
 // Alt Up or Alt Down moves the code
 // Shift alt is easy way to duplicate
+// F2 or Control D to select and edit multiple properties with same name
 
 // Every Browser has JavaScript Engine, chrome is v8
 /*
