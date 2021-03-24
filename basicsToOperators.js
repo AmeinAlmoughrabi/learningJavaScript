@@ -2,6 +2,7 @@
 // Ctrl ` is terminal
 // Ctrl L clears console
 // Alt Up or Alt Down moves the code
+// Shift alt is easy way to duplicate
 
 // Every Browser has JavaScript Engine, chrome is v8
 /*
