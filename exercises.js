@@ -355,19 +355,92 @@ console.log(address)
 
 
 
-//// Object Equality////
+////// Object Equality //////
+
+
 // Use constructor function we just created to create 2 address objects
 let address1 = new Address('aa', 'bb', 'cc');
 let address2 = new Address('aa', 'bb', 'cc');
+let address3 = address1;
 // since objects are reference types, even if they have same values,
 // they can have diff memory locations
 // === checks if they have the same reference./
 
 //this function should return true or false based on if they are equal
 function areEqual(address1, address2){
+    return address1.street = address2.street &&
+    address1.city === address2.city &&
+    address1.zipCode === address2.zipCode;
 }
 
+function areSame(address1, address2){
+    return address1 === address2;
+}
+
+console.log(areEqual(address1, address2))
+console.log(areSame(address1, address2))
+console.log(areSame(address1, address3))
+
+// If referencing the same object, will return True, otherwise False 
+
+//this is going to return true or false based on if they ref same object 
+// function areSame(address1, address2)
 
 
-//this is going to retrun true or false based on if they ref same object 
-function areSame(address1, address2)
+////// Blog Post Object //////
+
+// create log post object using:
+// title, body, author, views, comments(author, body), isLve(TF)
+// Use object literal syntax to create and initialize
+
+let blogPost = {
+    title: 'Ya we in Paris so what',
+    body: 'No this is not racist, we are just a bunch of fellas',
+    author: 'Kanye East',
+    views: 100,
+    comments: [
+        {
+            author: 'Youtube Guy',
+        body: `Wait a sec this isn't the krusty krab this is patrick`
+    },{author: 'Patrick', body: 'ya'}
+    ],
+    isLive: true
+};
+
+console.log(blogPost)
+
+
+////// Constructor Function //////
+
+// Use construction function to create a post object.
+// Building blogging engine drafting a post but not published.
+
+// Note that there is no comments views or live bc theyre defualt
+
+function Post(title, body, author){
+this.title = title;
+this.body = body;
+this.author = author;
+this.views = 0;
+this.comments = 0;
+this.isLive = false;
+}
+
+let post = new Post('a', 'b', 'c');
+console.log(post);
+
+
+////// Price Range Object //////
+
+// Create array of objects, called price range object,
+// Think of properties each item has.
+
+let priceRangeObject = [
+    {label: '$', tooltip: 'Inexpensive', minPerPerson:0, maxPerPerson: 10},
+    {label: '$$', tooltip: 'Moderate', minPerPerson:11, maxPerPerson: 20},
+    {label: '$$$', tooltip: 'Expensive', minPerPerson:21, maxPerPerson: 50}
+];
+
+let restaurants = [
+    {averagePerPerson: 5 }   
+]
