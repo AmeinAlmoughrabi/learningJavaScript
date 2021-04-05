@@ -444,3 +444,205 @@ let priceRangeObject = [
 let restaurants = [
     {averagePerPerson: 5 }   
 ]
+
+
+
+
+
+
+
+// ARRAYS //
+
+
+
+
+////// Array from Range //////
+
+// Let func take 2 parameters min and max, 
+// when you run the program you should get numbers from min to max 
+// (including min and max)
+
+const arrayRange = arrayFromRange(1,4)
+
+console.log(arrayRange)
+
+function arrayFromRange(min, max) {
+    const output = []
+    for (let i = min; i <= max; i++) {
+        output.push(i); 
+    }
+    return output;
+}
+
+
+////// Includes //////
+// write a function that impliments includes methods 
+
+const includes= [1, 2, 3, 4]
+
+console.log(includes.includes(1));
+console.log(doesInclude(includes, -1))
+
+function doesInclude(array, searchElement){
+    for (let element of array)
+    if (element === searchElement)
+    return true
+    else return false
+}
+
+// how to properly us the let of function
+
+
+////// Except //////
+// Take an array and another array, and we want to add the 
+// values we want to be excluded the from the original array
+
+const numbersExcept = [1, 2, 3, 4, 1, 1];
+
+const outputs = except(numbersExcept, [1, 2])
+
+console.log(outputs)
+
+function except(array, excluded){
+    const output = []
+    for (let element of array )
+        if (!excluded.includes(element))
+            output.push(element)
+    return output;
+}
+
+
+
+////// Moving an Element///////
+
+// move(adsfadf, 0 , 3)
+// Move works by move(array, index, offset)
+// if you want to make a value an error, console.error('invalid')
+// OG array not impacted, we get new array
+
+
+const oGNumbers = [1, 2, 3, 4];
+
+const output1 = move(oGNumbers, 1, 3)
+
+function move(array1, index, offset){
+const position = index + offset;
+if (position >= array.length || position < 0){
+    console.error('Invalid Offset')
+    return;
+}
+    
+const outp1 = [...array1]
+const element = outp1.splice(index, 1)[0];
+outp1.splice(index + offset, 0, element)
+console.log(outp1);
+}
+
+// here we add [0] bc return value returns array
+// so items removed will be returned as an array, element [0]
+
+////// Count Occurences ///////
+
+// Takes array and search element and takes the number of times 
+// the search element occurs
+
+const numbersOccurances = [1, 2, 3, 4, 1];
+
+const count = countOccurances(numbersOccurances, 1)
+// const count2 = countOccurances2(numbersOccurances, 1)
+
+console.log(count)
+
+function countOccurances(array, searchElement){
+//     let count = 0;
+//     for (let element of array){
+//         if (element === searchElement)
+//             count++;}
+//     return count;
+// }
+return array.reduce((accumulator, current) => {
+    const occurence = (current === searchElement) ? 1 : 0;
+    console.log(accumulator, current, searchElement)
+    return accumulator + occurence; 
+}, 0)
+}
+
+// function countOccurances2(array, searchElement){
+//     let count = 0;
+//         array.forEach(element in searchEslement => count++);
+//     return count;
+//     }
+
+////// Get Max ///////
+
+//give array and return largest number in array
+
+const maximum= getMax([1, 2, 3, 4, 5, 6, 7]);
+const maximum2= getMax2([1, 2, 3, 4, 5, 6, 7]);
+const maximum3= getMax3([1, 2, 3, 4, 5, 6, 7]);
+
+console.log(maximum)
+console.log(maximum2)
+console.log(maximum3)
+
+function getMax(array){
+    if (array.length === 0) return undefined;
+
+    let neighbor = []
+    neighbor = array.sort()
+    const iThink = neighbor.pop()
+    return iThink;
+}
+
+// Can also use this, the one he showed in his video
+
+function getMax2(array){
+    if (array.length === 0) return undefined;
+    
+    let max = array [0]
+
+    for (let i = 1; i< array.length; i++)
+        if(array[i] > max)
+        max = array[i]
+
+    return max
+}
+
+
+// Then challenge this function using reduce method
+
+function getMax3(array){
+    if (array.length === 0) return undefined;
+return array.reduce((a, b) => (a > b) ? a : b)
+    // if(current > accumulator) return current;
+    // return accumulator;
+
+};
+
+
+
+////// Movies ///////
+
+
+const movies2 = [
+    { title: 'a', year: 2018, rating: 4.5},
+    { title: 'b', year: 2018, rating: 4.7},
+    { title: 'c', year: 2018, rating: 3},
+    { title: 'd', year: 2017, rating: 4.5},
+]
+
+// Write code to get movies in 2018 with rating ?4
+// Sort them by rating in desscending order
+// Pick their title property and display on console
+// 'b'
+// 'a'
+
+const titles = movies2
+    .filter( m => m.year ===2018 && m.rating >= 4)
+    .sort((a, b) => a.rating - b.rating)
+    .reverse()
+    .map(m => m.title)
+
+console.log(titles);
+
+// neeed comparision funciton for sort bc its an object
